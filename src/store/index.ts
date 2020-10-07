@@ -1,15 +1,32 @@
 import Vue from 'vue';
-import Vuex from 'vuex';
+import Vuex, { StoreOptions } from 'vuex';
+import RootState from '@/entities/states/RootState';
+import {
+  allProjects,
+  allUsers,
+  labels,
+  myProjects,
+  profile,
+  registration,
+  savingProject,
+  user,
+  userFavorites,
+} from '@/store/modules';
 
 Vue.use(Vuex);
 
-export default new Vuex.Store({
-  state: {
-  },
-  mutations: {
-  },
-  actions: {
-  },
+const store: StoreOptions<RootState> = {
   modules: {
+    allProjects,
+    allUsers,
+    labels,
+    myProjects,
+    profile,
+    registration,
+    savingProject,
+    user,
+    userFavorites,
   },
-});
+};
+
+export default new Vuex.Store<RootState>(store);
