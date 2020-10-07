@@ -1,9 +1,9 @@
 <template>
   <div class="menu-mobile" :class="{'is-open': isOpen}">
     <!-- <span class="menu-mobile__logo">
-      <nuxt-link class="logo" to="/">
+      <v-btn class="logo" to="/">
         <MestoLogo />
-      </nuxt-link>
+      </v-btn>
     </span>
     <Burger class="menu-mobile__burger" @click="toogleMenu" />
     <client-only>
@@ -11,7 +11,7 @@
         <div class="menu-mobile-inside">
           <div class="header">
             <div class="header__user">
-              <nuxt-link v-if="user.fullName" class="user" :to="userLink">
+              <v-btn v-if="user.fullName" class="user" :to="userLink">
                 <Avatar
                   :size="40"
                   :username="user.fullName || ''"
@@ -21,12 +21,12 @@
                 <span class="user__name">
                   {{ user.fullName }}
                 </span>
-              </nuxt-link>
+              </v-btn>
             </div>
             <CloseLogo @click="toogleMenu" />
           </div>
           <div class="menu-mobile-items">
-            <nuxt-link
+            <v-btn
               v-for="(item, index) in menuItems"
               :key="index"
               class="menu-mobile-item"
@@ -36,7 +36,7 @@
               <span class="menu-mobile-item__label">
                 {{ item.text }}
               </span>
-            </nuxt-link>
+            </v-btn>
           </div>
           <span class="line" />
 

@@ -1,11 +1,10 @@
 module.exports = {
   plugins: {
-    // 'postcss-nested': {},
-    // 'postcss-responsive-type': {},
-    // 'postcss-hexrgba': {},
-    // 'postcss-preset-env': {
-    //   stage: 2,
-    // },
+    'postcss-nested': {},
+    'autoprefixer': {},
+    'postcss-responsive-type': {},
+    'postcss-hexrgba': {},
+    'postcss-preset-env': {},
   },
   preset: {
     stage: 0,

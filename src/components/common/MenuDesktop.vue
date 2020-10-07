@@ -1,11 +1,11 @@
 <template>
   <div class="menu-desktop">
-    <nuxt-link class="plr-30" to="/">
-      <!-- <MestoLogo class="logo" /> -->
-    </nuxt-link>
+    <v-btn class="plr-30" to="/">
+      <MestoLogo class="logo" />
+    </v-btn>
 
     <div class="menu-desktop__items">
-      <nuxt-link
+      <v-btn
         v-for="(item, index) in menuItems"
         :key="index"
         class="menu-item"
@@ -15,7 +15,7 @@
         <span class="menu-item__label">
           {{ item.text }}
         </span>
-      </nuxt-link>
+      </v-btn>
     </div>
 
     <span class="menu-desktop__line" />
@@ -36,7 +36,7 @@
       </div>
     </div>
 
-    <nuxt-link v-if="user.fullName" class="menu-desktop__user plr-30" :to="userLink">
+    <v-btn v-if="user.fullName" class="menu-desktop__user plr-30" :to="userLink">
       <!-- <Avatar
         :size="40"
         :username="user.fullName || ''"
@@ -46,23 +46,22 @@
       <span class="user__name">
         {{ user.fullName }}
       </span>
-    </nuxt-link>
+    </v-btn>
   </div>
 </template>
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
-// import MestoLogo from '@/static/images/svg/menu/mesto-logo.svg';
-// import UsersLogo from '@/static/images/svg/menu/users-icon.svg';
-// import FavoritesLogo from '@/static/images/svg/menu/friends-icon.svg';
+import MestoLogo from '@/static/images/svg/menu/mesto-logo.svg';
+import UsersLogo from '@/static/images/svg/menu/users-icon.svg';
 // import Avatar from 'vue-avatar';
 import { State } from 'vuex-class';
 import UserEntity from '@/entities/UserEntity';
 
 @Component({
   components: {
-    // MestoLogo,
-    // UsersLogo,
+    MestoLogo,
+    UsersLogo,
     // Avatar,
   },
 })
