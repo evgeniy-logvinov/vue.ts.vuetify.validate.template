@@ -1,0 +1,49 @@
+html, body, button {
+    font-family: var(--fontFamily);
+    font-size: var(--defaultFontSize);
+    line-height: var(--defaultLineHeight);
+    font-weight: 400;
+    color: var(--blackColor);
+    -ms-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+}
+
+html,body,#__nuxt,#__layout {
+    height: 100%;
+    min-height: 100%;
+}
+
+h1 {
+    font-size: 26px;
+    line-height: 31px;
+    font-weight: 600;
+}
+
+h3 {
+    font-weight: 600;
+    font-size: 22px;
+    line-height: 27px;
+}
+
+@media (min-width: 992px) {
+    h1 {
+        font-size: 36px;
+        line-height: 44px;
+    }
+}
+
+*, *:before, *:after {
+    box-sizing: border-box;
+    margin: 0;
+}
+
+.uteam-link {
+    color: #0085FF;
+    cursor: pointer;
+    text-decoration: none;
+}
+.uteam-link:hover {
+    text-decoration: underline;
+}

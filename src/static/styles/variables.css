@@ -1,0 +1,52 @@
+/*!* Large desktops and laptops *!*/
+/*media (min-width: 1200px) {*/
+
+/*}*/
+
+/*!* Portrait tablets and medium desktops *!*/
+/*media (min-width: 992px) and (max-width: 1199px) {*/
+
+/*}*/
+
+/*!* Portrait tablets and small desktops *!*/
+/*media (min-width: 768px) and (max-width: 991px) {*/
+
+/*}*/
+
+/*!* Landscape phones and portrait tablets *!*/
+/*media (max-width: 767px) {*/
+
+/*}*/
+
+/*!* Landscape phones and smaller *!*/
+/*media (max-width: 480px) {*/
+
+/*}*/
+
+:root {
+
+  --primaryColor: #75fbc6;
+  --secondaryColor: #320E3F;
+  --primaryColor-hover: #3b41b7;
+  --blackColor: #000000;
+  --greyColor: #878e99;
+  --backgroundPageColor: #fff;
+  --borderColor: #dbdbdb;
+  --errorColor: #ff4b3e;
+  --lightGrayColor: #f3f3f3;
+  --secondaryGrayColor: #7b7b7b;
+
+  --textFontSize: 14px;
+  --textLineHeight: 17px;
+
+  --fontFamily: 'LiberationSans', 'Helvetica Neue', BlinkMacSystemFont, 'Segoe UI', Roboto,
+    Arial, sans-serif;
+  --defaultFontSize: 14px;
+  --defaultLineHeight: 17px;
+  --defaultBoxShadow: 4px 4px 6px rgba(0, 0, 0, 0.06);
+  --activeControlBoxShadow: 5px 5px 5px rgba(59, 65, 183, 0.3);
+  --hoverBlockBoxShadow: 5px 5px 20px 3px rgba(0, 0, 0, 0.2);
+
+  --defaultBorderRadius: 0px;
+
+}
