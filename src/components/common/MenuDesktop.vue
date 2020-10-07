@@ -1,11 +1,11 @@
 <template>
   <div class="menu-desktop">
-    <v-btn class="plr-30" to="/">
+    <router-link class="plr-30" to="/">
       <MestoLogo class="logo" />
-    </v-btn>
+    </router-link>
 
     <div class="menu-desktop__items">
-      <v-btn
+      <router-link
         v-for="(item, index) in menuItems"
         :key="index"
         class="menu-item"
@@ -15,7 +15,7 @@
         <span class="menu-item__label">
           {{ item.text }}
         </span>
-      </v-btn>
+      </router-link>
     </div>
 
     <span class="menu-desktop__line" />
@@ -36,17 +36,17 @@
       </div>
     </div>
 
-    <v-btn v-if="user.fullName" class="menu-desktop__user plr-30" :to="userLink">
-      <!-- <Avatar
+    <router-link v-if="user.fullName" class="menu-desktop__user plr-30" :to="userLink">
+      <Avatar
         :size="40"
         :username="user.fullName || ''"
         :src="user.imagePath"
         :custom-style="{ 'background-size': 'cover', 'min-width': '40px' }"
-      /> -->
+      />
       <span class="user__name">
         {{ user.fullName }}
       </span>
-    </v-btn>
+    </router-link>
   </div>
 </template>
 
@@ -54,7 +54,8 @@
 import { Component, Vue } from 'vue-property-decorator';
 import MestoLogo from '@/static/images/svg/menu/mesto-logo.svg';
 import UsersLogo from '@/static/images/svg/menu/users-icon.svg';
-// import Avatar from 'vue-avatar';
+import FavoritesLogo from '@/static/images/svg/menu/friends-icon.svg';
+import Avatar from 'vue-avatar';
 import { State } from 'vuex-class';
 import UserEntity from '@/entities/UserEntity';
 
@@ -62,7 +63,7 @@ import UserEntity from '@/entities/UserEntity';
   components: {
     MestoLogo,
     UsersLogo,
-    // Avatar,
+    Avatar,
   },
 })
 export default class MenuDesktopComponent extends Vue {
@@ -78,16 +79,16 @@ export default class MenuDesktopComponent extends Vue {
   }
 
   menuItems = [
-    // {
-    //   logo: UsersLogo,
-    //   text: 'Участники',
-    //   route: '/',
-    // },
-    // {
-    //   logo: FavoritesLogo,
-    //   text: 'Избранноe',
-    //   route: '/favorites/',
-    // },
+    {
+      logo: UsersLogo,
+      text: 'Участники',
+      route: '/',
+    },
+    {
+      logo: FavoritesLogo,
+      text: 'Избранноe',
+      route: '/favorites/',
+    },
   ];
 
   contacts = [

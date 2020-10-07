@@ -1,84 +1,82 @@
 <template>
   <div class="menu-mobile" :class="{'is-open': isOpen}">
-    <!-- <span class="menu-mobile__logo">
-      <v-btn class="logo" to="/">
+    <span class="menu-mobile__logo">
+      <router-link class="logo" to="/">
         <MestoLogo />
-      </v-btn>
+      </router-link>
     </span>
     <Burger class="menu-mobile__burger" @click="toogleMenu" />
-    <client-only>
-      <Slide :burger-icon="false" :cross-icon="false" :close-on-navigation="true" :is-open="isOpen">
-        <div class="menu-mobile-inside">
-          <div class="header">
-            <div class="header__user">
-              <v-btn v-if="user.fullName" class="user" :to="userLink">
-                <Avatar
-                  :size="40"
-                  :username="user.fullName || ''"
-                  :src="user.imagePath"
-                  :custom-style="{ 'background-size': 'cover', 'min-width': '40px' }"
-                />
-                <span class="user__name">
-                  {{ user.fullName }}
-                </span>
-              </v-btn>
-            </div>
-            <CloseLogo @click="toogleMenu" />
+    <Slide :burger-icon="false" :cross-icon="false" :close-on-navigation="true" :is-open="isOpen">
+      <div class="menu-mobile-inside">
+        <div class="header">
+          <div class="header__user">
+            <router-link v-if="user.fullName" class="user" :to="userLink">
+              <Avatar
+                :size="40"
+                :username="user.fullName || ''"
+                :src="user.imagePath"
+                :custom-style="{ 'background-size': 'cover', 'min-width': '40px' }"
+              />
+              <span class="user__name">
+                {{ user.fullName }}
+              </span>
+            </router-link>
           </div>
+          <CloseLogo @click="toogleMenu" />
+        </div>
+        <div class="menu-mobile-items">
+          <router-link
+            v-for="(item, index) in menuItems"
+            :key="index"
+            class="menu-mobile-item"
+            :to="item.route"
+          >
+            <component :is="item.logo" />
+            <span class="menu-mobile-item__label">
+              {{ item.text }}
+            </span>
+          </router-link>
+        </div>
+        <span class="line" />
+
+        <div class="channels">
+          <span class="channels__header">Каналы<span class="dot">.</span></span>
+
           <div class="menu-mobile-items">
-            <v-btn
-              v-for="(item, index) in menuItems"
+            <a
+              v-for="(contact, index) in contacts"
               :key="index"
               class="menu-mobile-item"
-              :to="item.route"
+              :href="contact.url"
+              target="_blank"
             >
-              <component :is="item.logo" />
-              <span class="menu-mobile-item__label">
-                {{ item.text }}
-              </span>
-            </v-btn>
-          </div>
-          <span class="line" />
-
-          <div class="channels">
-            <span class="channels__header">Каналы<span class="dot">.</span></span>
-
-            <div class="menu-mobile-items">
-              <a
-                v-for="(contact, index) in contacts"
-                :key="index"
-                class="menu-mobile-item"
-                :href="contact.url"
-                target="_blank"
-              >
-                {{ contact.title }}
-              </a>
-            </div>
+              {{ contact.title }}
+            </a>
           </div>
         </div>
-      </Slide>
-    </client-only> -->
+      </div>
+    </Slide>
   </div>
 </template>
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
-// import MestoLogo from '@/static/images/svg/menu/mesto-logo.svg';
-// import UsersLogo from '@/static/images/svg/menu/users-icon.svg';
-// import FavoritesLogo from '@/static/images/svg/menu/friends-icon.svg';
-// import Burger from '@/static/images/svg/menu/burger.svg';
-// import CloseLogo from '@/static/images/svg/close.svg';
-// import Avatar from 'vue-avatar';
+import MestoLogo from '@/static/images/svg/menu/mesto-logo.svg';
+import UsersLogo from '@/static/images/svg/menu/users-icon.svg';
+import FavoritesLogo from '@/static/images/svg/menu/friends-icon.svg';
+import Burger from '@/static/images/svg/menu/burger.svg';
+import CloseLogo from '@/static/images/svg/close.svg';
+import Avatar from 'vue-avatar';
 import { State } from 'vuex-class';
 import UserEntity from '@/entities/UserEntity';
 
 @Component({
   components: {
-    // MestoLogo,
-    // UsersLogo,
-    // Avatar,
-    // Burger,
-    // CloseLogo,
+    MestoLogo,
+    UsersLogo,
+    Avatar,
+    Burger,
+    CloseLogo,
   },
 })
 export default class MenuMobileComponent extends Vue {
@@ -102,16 +100,16 @@ export default class MenuMobileComponent extends Vue {
   }
 
   menuItems = [
-    // {
-    //   logo: UsersLogo,
-    //   text: 'Участники',
-    //   route: '/',
-    // },
-    // {
-    //   logo: FavoritesLogo,
-    //   text: 'Избранное',
-    //   route: '/favorites/',
-    // },
+    {
+      logo: UsersLogo,
+      text: 'Участники',
+      route: '/',
+    },
+    {
+      logo: FavoritesLogo,
+      text: 'Избранное',
+      route: '/favorites/',
+    },
   ];
 
   contacts = [
