@@ -3,7 +3,7 @@ import TokenHelper from '@/helpers/TokenHelper';
 import { v4 as uuidv4 } from 'uuid';
 import createAuthRefreshInterceptor from 'axios-auth-refresh';
 
-const { API_URL: apiUrl } = process.env;
+const { VUE_APP_BASE_URI: apiUrl } = process.env;
 
 class BaseApiService {
   public http: AxiosInstance;

@@ -1,7 +1,7 @@
 module.exports = {
   plugins: {
     'postcss-nested': {},
-    'autoprefixer': {},
+    autoprefixer: {},
     'postcss-responsive-type': {},
     'postcss-hexrgba': {},
     'postcss-preset-env': {},

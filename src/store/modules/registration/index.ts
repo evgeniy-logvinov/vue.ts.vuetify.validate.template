@@ -9,6 +9,7 @@ import AuthEntity from '@/entities/AuthEntity';
 import LoginEntity from '@/entities/LoginEntity';
 import MagicLinkEntity from '@/entities/MagicLinkEntity';
 import TokenHelper from '@/helpers/TokenHelper';
+import router from '@/router';
 
 const state = (): RegistrationState => ({
   signup: {
@@ -33,7 +34,7 @@ const actions: any = {
     await context.dispatch('user/login', authInfo, { root: true });
 
     if (context.rootState.user.toAfterLogin) {
-      await this.$router.push(context.rootState.user.toAfterLogin);
+      await router.push(context.rootState.user.toAfterLogin);
     }
   },
 
@@ -44,7 +45,7 @@ const actions: any = {
     await context.dispatch('user/login', authInfo, { root: true });
 
     if (context.rootState.user.toAfterLogin) {
-      await this.$router.push(context.rootState.user.toAfterLogin);
+      await router.push(context.rootState.user.toAfterLogin);
     }
   },
 
@@ -60,9 +61,10 @@ const actions: any = {
     TokenHelper.setToken('refreshToken', authInfo.refreshToken);
 
     if (magicLink.redirect) {
-      await this.$router.push(magicLink.redirect);
+      await router.push(magicLink.redirect);
     } else {
-      await this.$router.push('/');
+      console.log('aa', magicLink.redirect);
+      await router.push('/');
     }
   },
 

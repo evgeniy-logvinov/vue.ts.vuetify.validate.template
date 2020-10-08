@@ -27,7 +27,7 @@ module.exports = {
     'class-methods-use-this': 'off',
     'no-empty': 'off',
     '@typescript-eslint/member-delimiter-style': 'error',
-    "@typescript-eslint/ban-ts-ignore": "off",
+    '@typescript-eslint/ban-ts-ignore': 'off',
   },
   overrides: [
     {
